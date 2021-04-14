@@ -49,7 +49,7 @@ Example output
 The default normalization method for CORRseq is EXCAVATOR2 median normalization, the following procedure generate log2R-MED for each testing sample.
 ```r
 EXCAVATOR2> perl EXCAVATORDataAnalysis.pl ExperimentalFileAnalysis.w50K.txt --processors 6 --target MyTarget_w50K --assembly hg19 --output /.../OutEXCAVATOR2/Results_MyProject_w50K --mode ...
-```r
+```
 log2R-MED for one sample:
 ```r
 Chromosome	Position	Start	End	Log2R	SegMean	Class
