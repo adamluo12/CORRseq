@@ -35,7 +35,7 @@ EXCAVATOR2> perl EXCAVATORDataPrepare.pl ExperimentalFilePrepare.w50000.txt proc
 ```
 Using Rsamtools (follow CODEX2'S manual http://htmlpreview.github.io/?https://github.com/yuchaojiang/CODEX2/blob/master/demo/CODEX2.html)
 
-Example outputs
+Example output
 ```r
 > Y_qc[1:5,1:5]
                   NA06994 NA07000 NA07056 NA07357 NA10847
@@ -45,10 +45,23 @@ Example outputs
 1:3301632-3301902     264     227     157     181     245
 1:3327905-3329375     969     962     405     655     867
 ```
-
-
-
-
+### Normalization
+The default normalization method for CORRseq is EXCAVATOR2 median normalization, the following procedure generate log2R-MED for each testing sample.
+```r
+EXCAVATOR2> perl EXCAVATORDataAnalysis.pl ExperimentalFileAnalysis.w50K.txt --processors 6 --target MyTarget_w50K --assembly hg19 --output /.../OutEXCAVATOR2/Results_MyProject_w50K --mode ...
+```r
+log2R-MED for one sample:
+```r
+Chromosome	Position	Start	End	Log2R	SegMean	Class
+1	20201	10202	30201	0.542625446945389	0.363527762355447	OUT
+1	40201	30202	50201	0.339622160832357	0.363527762355447	OUT
+1	65567	65434	65700	0.708845027878818	0.363527762355447	IN
+1	65902	65756	66048	0.341973588227948	0.363527762355447	IN
+1	69549	69090	70008	0.225902832162026	0.363527762355447	IN
+1	80208	70209	90208	0.385081936482947	0.363527762355447	OUT
+1	100208	90209	110208	-0.511761046706045	-0.642331505481395	OUT
+1	120208	110209	130208	-0.389784914264831	-0.642331505481395	OUT
+```
 
 
 
