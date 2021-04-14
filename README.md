@@ -62,8 +62,12 @@ Chromosome	Position	Start	End	Log2R	SegMean	Class
 1	100208	90209	110208	-0.511761046706045	-0.642331505481395	OUT
 1	120208	110209	130208	-0.389784914264831	-0.642331505481395	OUT
 ```
+The default normalization method for SARAseq is CODEX2 PLF normalization, the following procedure generate a log2R-PLF data matrix for all samples.
+
+### CNV calling
+Run CORRseq and SARAseq with log2R-MED and log2R-PLF
 
 
-
+The output file is tab delimited and has 9 columns with rows corresponding to CNV events. The columns include sample names, chromosome, CNV start marker, CNV end marker, CNV start position, CNV end position, CNV length in b, CNV length in markers, CNV status (deletion or duplication).
 
 
