@@ -6,9 +6,9 @@ Fei Qin, Xizhi Luo, Guoshuai Cai, Feifei Xiao
 We have previously shown evidence of the genomic correlation structure in SNP array data and developed a novel chromosomal breakpoint detection algorithm, LDcnv, which showed significantly improved detection power through integrating the correlation structure in a systematic modeling manner. However, it remains unexplored whether the genomic correlation exists in WES data and how such correlation structure integration can improve CNV detection accuracy. 
 Here, we proposed a correlation-based method, CORRseq, as a novel release of the LDcnv algorithm in profiling WES data. We also developed an alternative independent-based method in parallel, so as referred to SARAseq, which was built upon on our existing method modSaRa.
 ## General workflow
-CORRseq requires WES read count data from both testing and control samples as inputs. Read counts are normalized using a median normalization approach to adjust exon length, GC-content, and mappability biases. Logarithm transformation of the ratios of normalized data from the testing and the pooled control samples is calculated. CORRseq implements a correlation-based algorithm (LDcnv) to identify CNVs. 
+**CORRseq** requires WES read count data from both testing and control samples as inputs. Read counts are normalized using a **median normalization approach** to adjust exon length, GC-content, and mappability biases. Logarithm transformation of the ratios of normalized data from the testing and the pooled control samples is calculated. CORRseq implements a correlation-based algorithm (LDcnv) to identify CNVs. 
 
-SARAseq only requires WES read count data from testing samples. Read counts are normalized using a PLF-based approach to mitigate observable biases (GC content, amplification efficiency, and exon size) and latent systemic biases and estimate the expected “null” read counts. Logarithm of the observed read counts and expected “nulls” are calculated. SARAseq uses an algorithm assuming independence (modSaRa) for the CNV identification.
+**SARAseq** only requires WES read count data from testing samples. Read counts are normalized using a **PLF-based approach** to mitigate observable biases (GC content, amplification efficiency, and exon size) and latent systemic biases and estimate the expected “null” read counts. Logarithm of the observed read counts and expected “nulls” are calculated. SARAseq uses an algorithm assuming independence (modSaRa) for the CNV identification.
 
 ![workflow](workflow.jpg)
 
@@ -49,7 +49,7 @@ Example output
 1:3327905-3329375     969     962     405     655     867
 ```
 ### Normalization
-The default normalization method for CORRseq is EXCAVATOR2 median normalization, the following procedure generate log2R-MED for each testing sample.
+The default normalization method for **CORRseq** is EXCAVATOR2 median normalization, the following procedure generate **log2R-MED** for each testing sample.
 ```r
 EXCAVATOR2> perl EXCAVATORDataAnalysis.pl ExperimentalFileAnalysis.w50K.txt --processors 6 --target MyTarget_w50K --assembly hg19 --output /.../OutEXCAVATOR2/Results_MyProject_w50K --mode ...
 ```
@@ -65,7 +65,7 @@ Chromosome	Position	Start	End	Log2R	SegMean	Class
 1	100208	90209	110208	-0.511761046706045	-0.642331505481395	OUT
 1	120208	110209	130208	-0.389784914264831	-0.642331505481395	OUT
 ```
-The default normalization method for SARAseq is CODEX2 PLF normalization, the following procedure generate a log2R-PLF data matrix for all samples.
+The default normalization method for **SARAseq** is CODEX2 PLF normalization, the following procedure generate a **log2R-PLF** data matrix for all samples.
 
 ### CNV calling
 Run CORRseq and SARAseq with log2R-MED and log2R-PLF
