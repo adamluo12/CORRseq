@@ -7,6 +7,7 @@ We have previously shown evidence of the genomic correlation structure in SNP ar
 Here, we proposed a correlation-based method, CORRseq, as a novel release of the LDcnv algorithm in profiling WES data. We also developed an alternative independent-based method in parallel, so as referred to SARAseq, which was built upon on our existing method modSaRa.
 ## General workflow
 CORRseq requires WES read count data from both testing and control samples as inputs. Read counts are normalized using a median normalization approach to adjust exon length, GC-content, and mappability biases. Logarithm transformation of the ratios of normalized data from the testing and the pooled control samples is calculated. CORRseq implements a correlation-based algorithm (LDcnv) to identify CNVs. 
+
 SARAseq only requires WES read count data from testing samples. Read counts are normalized using a PLF-based approach to mitigate observable biases (GC content, amplification efficiency, and exon size) and latent systemic biases and estimate the expected “null” read counts. Logarithm of the observed read counts and expected “nulls” are calculated. SARAseq uses an algorithm assuming independence (modSaRa) for the CNV identification.
 
 ![workflow](workflow.jpg)
