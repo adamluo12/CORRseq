@@ -26,6 +26,7 @@ CODEX2 (https://github.com/yuchaojiang/CODEX2)
 devtools::install_github("yuchaojiang/CODEX2/package")
 ```
 EXCAVATOR2:https://sourceforge.net/projects/excavator2tool/files/EXCAVATOR2_Package_v1.1.2.tgz/download
+
 samtools: https://github.com/samtools/samtools/blob/develop/INSTALL
 
 ### Getting raw read count data
